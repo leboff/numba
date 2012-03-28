@@ -8,6 +8,10 @@ $('<%= escape_javascript(render(:partial => @listing))%>')
   .hide()
   .fadeIn()
 
+$(".listing_list" ).sortable({
+                connectWith: ".listing_list",
+                revert: true
+            });
 $('#new_listing')[0].reset()
 
 $('#listings_count').html '<%= listing_count %>'

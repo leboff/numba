@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :emails, :password, :password_confirmation, :remember_me, :username, :login
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :login
 
   attr_accessor :login
 
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
-    where(conditions).where(["lower(username) = :value OR lower(emails) = :value", {:value => login.strip.downcase}]).first
+    where(conditions).where(["lower(username) = :value OR lower(email) = :value", {:value => login.strip.downcase}]).first
   end
 
   protected
@@ -63,6 +63,6 @@ class User < ActiveRecord::Base
   end
 
   def self.find_record(login)
-    where(["username = :value OR emails = :value", {:value => login}]).first
+    where(["username = :value OR email = :value", {:value => login}]).first
   end
 end

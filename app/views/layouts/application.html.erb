@@ -18,6 +18,7 @@
 			<li class="rss"><a href="#">Subscribe</a></li>
 			<li class="twitter"><a href="#">Follow Me</a></li>
 			<li class="home"><a href="/">Home</a></li>
+            <li><%=link_to('Logout', destroy_user_session_path, :method => 'delete')%></li>
 		</ul>
 		</nav>
 		</div>

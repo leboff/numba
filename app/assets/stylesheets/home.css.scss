@@ -4,3 +4,32 @@
 	        background-color: #fff5f5;
             width: 120px;
 		}
+
+.listing_list{
+    margin:auto;
+    width:180px;
+    padding: 15px;
+
+
+}
+.listing_list li{
+    margin:auto;
+    width:180px;
+
+}
+.listing:nth-child(4n+1){
+    clear: left
+}
+.listing{
+    float:left;
+    width:180px;
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    background-color: pink;
+    box-shadow: 3px 3px 1px #888;
+
+}
+#list_form{
+    clear: both;
+}

@@ -9,6 +9,15 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
 
+  has_many :listings
+  has_many :emails
+  has_many :addresses
+  has_many :phones
+  has_many :connections
+  has_many :contacts, :through => :connections
+
+
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     login = conditions.delete(:login)

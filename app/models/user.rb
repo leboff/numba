@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :login
+  attr_accessible :emails, :password, :password_confirmation, :remember_me, :username, :login
 
   attr_accessor :login
 
@@ -21,14 +21,14 @@ class User < ActiveRecord::Base
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     login = conditions.delete(:login)
-    where(conditions).where(["lower(username) = :value OR lower(email) = :value", {:value => login.strip.downcase}]).first
+    where(conditions).where(["lower(username) = :value OR lower(emails) = :value", {:value => login.strip.downcase}]).first
   end
 
   protected
 
-  # Attempt to find a user by it's email. If a record is found, send new
+  # Attempt to find a user by it's emails. If a record is found, send new
   # password instructions to it. If not user is found, returns a new user
-  # with an email not found error.
+  # with an emails not found error.
   def self.send_reset_password_instructions(attributes={})
     recoverable = find_recoverable_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
     recoverable.send_reset_password_instructions if recoverable.persisted?
@@ -63,6 +63,6 @@ class User < ActiveRecord::Base
   end
 
   def self.find_record(login)
-    where(["username = :value OR email = :value", {:value => login}]).first
+    where(["username = :value OR emails = :value", {:value => login}]).first
   end
 end

@@ -1,4 +1,11 @@
 Numba::Application.routes.draw do
+  post "email/create"
+
+  get "email/update"
+
+  get "email/delete"
+
+  match 'home' =>'home#index'
   devise_for :users
 
   # The priority is based upon order of creation:

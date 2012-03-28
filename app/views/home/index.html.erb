@@ -1,0 +1,14 @@
+	<header class="section_tit">
+			<h3>Home</h3>
+	</header>
+    <div id="emails_count"><%= email_count %></div>
+    <div id="emails">
+      <%= render @emails %>
+
+
+    </div>
+    <%= form_for Email.new, :remote => true do |f| %>
+         <%= f.label 'email address' %><br />
+        <%= f.address 'checked', :class => 'submittable' %>
+        <%= f.submit %>
+<% end %>

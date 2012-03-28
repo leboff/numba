@@ -1,14 +1,32 @@
-	<header class="section_tit">
+<header class="section_tit">
 			<h3>Home</h3>
 	</header>
     <div id="emails_count"><%= email_count %></div>
-    <div id="emails">
-      <%= render @emails %>
-
-
+    <ul>
+	    <li id="draggable" class="ui-state-highlight">Drag me down</li>
+    </ul>
+    <div class="email">
+        <ul id="sortable">
+          <%= render @emails %>
+        </ul>
     </div>
+
     <%= form_for Email.new, :remote => true do |f| %>
-         <%= f.label 'emails address' %><br />
+         <%= f.label 'email address' %><br />
         <%= f.email_field 'address', :class => 'submittable' %>
         <%= f.submit %>
 <% end %>
+
+<header class="section_tit">
+			<h3>Listings</h3>
+	</header>
+<div class="listings">
+
+  <%=render @listings%>
+
+    <%= form_for Listing.new, :remote => true do |f| %>
+         <%= f.label 'New Listing Name' %><br />
+        <%= f.text_field 'name', :class => 'submittable' %>
+        <%= f.submit %>
+<% end %>
+</div>

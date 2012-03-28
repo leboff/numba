@@ -1,4 +1,4 @@
 class ListingItem < ActiveRecord::Base
   belongs_to :listing
-  belongs_to :info, :polymorphic => true
+  belongs_to :listable, :polymorphic => true
 end

@@ -11,10 +11,69 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328144129) do
+ActiveRecord::Schema.define(:version => 20120328191432) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "addressone"
+    t.string   "addresstwo"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "connections", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "emails", :force => true do |t|
+    t.string   "address"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "listing_items", :force => true do |t|
+    t.integer  "listing_id"
+    t.integer  "listable_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "listable_type"
+  end
+
+  create_table "listing_visibilities", :force => true do |t|
+    t.integer  "connection_id"
+    t.integer  "listing_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "listings", :force => true do |t|
+    t.string   "name"
+    t.boolean  "auto"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "phones", :force => true do |t|
+    t.string   "prefix"
+    t.string   "areacode"
+    t.string   "number"
+    t.string   "ext"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "emails",                  :default => "", :null => false
+    t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -29,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20120328144129) do
     t.string   "username"
   end
 
-  add_index "users", ["emails"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

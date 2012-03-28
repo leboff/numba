@@ -4,6 +4,7 @@ Numba::Application.routes.draw do
   match 'home' =>'home#index'
   devise_for :users
   resources :emails
+  resources :listings
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

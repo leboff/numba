@@ -1,32 +1,35 @@
 <header class="section_tit">
-			<h3>Home</h3>
-	</header>
-    <div id="emails_count"><%= email_count %></div>
-    <ul>
-	    <li id="draggable" class="ui-state-highlight">Drag me down</li>
-    </ul>
-    <div class="email">
-        <ul id="sortable">
-          <%= render @emails %>
-        </ul>
-    </div>
+  <h3>Home</h3>
+</header>
+<div id="emails_count"><%= email_count %></div>
+<ul>
+  <li id="draggable" class="ui-state-highlight">Drag me down</li>
+</ul>
+<div class="e">
+  <ul id="sortable" class="emails">
+    <%= render @emails %>
+  </ul>
 
-    <%= form_for Email.new, :remote => true do |f| %>
-         <%= f.label 'email address' %><br />
-        <%= f.email_field 'address', :class => 'submittable' %>
-        <%= f.submit %>
-<% end %>
+  <%= form_for Email.new, :remote => true do |f| %>
+      <%= f.label 'email address' %>
+      <br/>
+      <%= f.email_field 'address', :class => 'submittable' %>
+      <%= f.submit %>
+  <% end %>
+</div>
 
 <header class="section_tit">
-			<h3>Listings</h3>
-	</header>
+  <h3>Listings</h3>
+</header>
 <div class="listings">
 
-  <%=render @listings%>
+  <%= render @listings %>
 
-    <%= form_for Listing.new, :remote => true do |f| %>
-         <%= f.label 'New Listing Name' %><br />
-        <%= f.text_field 'name', :class => 'submittable' %>
-        <%= f.submit %>
-<% end %>
+
 </div>
+ <%= form_for Listing.new, :remote => true do |f| %>
+      <%= f.label 'New Listing Name' %>
+      <br/>
+      <%= f.text_field 'name', :class => 'submittable' %>
+      <%= f.submit %>
+  <% end %>

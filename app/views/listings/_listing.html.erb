@@ -1,5 +1,7 @@
-  <strong><%=listing.name%></strong>
+<div id="<%= dom_id(listing) %>">
+<strong><%=listing.name%></strong>
    <ul id="sortable">
        <%= render listing.listing_items %>
    </ul>
 
+</div>

@@ -4,7 +4,7 @@
 
 
 $('<%= escape_javascript(render(:partial => @email))%>')
-  .appendTo('#emails')
+  .appendTo('.emails')
   .hide()
   .fadeIn()
 

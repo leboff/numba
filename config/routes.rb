@@ -6,6 +6,7 @@ Numba::Application.routes.draw do
   resources :emails
   resources :listings
   resources :phones
+  resources :connections
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

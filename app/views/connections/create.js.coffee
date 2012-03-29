@@ -3,12 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-$('<%= escape_javascript(render(:partial => @phone))%>')
-  .appendTo('.phones')
+$('<%= escape_javascript(render(:partial => @connection))%>')
+  .appendTo('.conns')
   .hide()
   .fadeIn()
-
-refresh();
-destroyDraggable(".listable");
-addDraggable(".listable");
-$('#new_phone')[0].reset()

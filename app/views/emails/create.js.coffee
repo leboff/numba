@@ -7,6 +7,9 @@ $('<%= escape_javascript(render(:partial => @email))%>')
   .appendTo('.emails')
   .hide()
   .fadeIn()
+
+refresh();
+destroyDraggable(".listable");
 addDraggable(".listable");
 $('#new_email')[0].reset()
 

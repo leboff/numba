@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :connections
   has_many :contacts, :through => :connections
 
+  validates_uniqueness_of :username
 
 
   def self.find_for_database_authentication(warden_conditions)

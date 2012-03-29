@@ -43,7 +43,7 @@
 <div class="listings">
 
 
-  <%= render @listings %>
+  <%= render @listings , :cls => 'listing_list'%>
 
 
 </div>
@@ -51,3 +51,15 @@
 <header class="section_tit">
   <h3>Contacts</h3>
 </header>
+   <%= form_for Connection.new, :remote => true do |f| %>
+
+      <%= f.text_field 'userlist', :class => 'submittable', :placeholder => 'username+list'  %>
+      <%= f.submit %>
+  <% end %>
+<div class="conns">
+
+
+  <%= render @connections %>
+
+
+</div>

@@ -1,8 +1,7 @@
 class EmailsController < ApplicationController
   respond_to :html, :js
   def create
-    @email = Email.new(params[:email])
-    @email.user = current_user;
+    @email = current_user.emails.build(params[:email])
     @email.save
 
     respond_with @email, :location => emails_url

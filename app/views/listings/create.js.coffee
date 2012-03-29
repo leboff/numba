@@ -7,6 +7,9 @@ $('<%= escape_javascript(render(:partial => @listing))%>')
   .appendTo('.listings')
   .hide()
   .fadeIn()
+
+refresh();
+destroySortable(".listing_list");
 addSortable(".listing_list" );
 $('#new_listing')[0].reset()
 

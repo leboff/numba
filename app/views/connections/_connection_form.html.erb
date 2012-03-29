@@ -1,0 +1,5 @@
+<%= form_for Connection.new, :remote => true do |f| %>
+
+    <%= f.text_field 'userlist', :class => 'submittable', :placeholder => 'username+list' %>
+    <%= f.submit %>
+<% end %>

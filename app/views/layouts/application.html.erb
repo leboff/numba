@@ -2,30 +2,31 @@
 <html>
 <head>
   <title>Numba</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "helper", "application", "modernizr-1.1.min"%>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "helper", "application", "modernizr-1.1.min" %>
   <%= csrf_meta_tags %>
   <p class="notice"><%= notice %></p>
+
   <p class="alert"><%= alert %></p>
 </head>
 <body>
 <header id="site_head"><!--useful to create the 960px limit-->
-		<div class="header_cont">
-		<h1><a href="#">num.ba</a></h1>
+  <div class="header_cont">
+    <h1><a href="#">num.ba</a></h1>
 
-		<nav class="head_nav">
-		<ul>
-			<li class="rss"><a href="#">Subscribe</a></li>
-			<li class="twitter"><a href="#">Follow Me</a></li>
-			<li class="home"><a href="/home">Home</a></li>
-            <li><%=link_to('Logout', destroy_user_session_path, :method => 'delete')%></li>
-		</ul>
-		</nav>
-		</div>
-	</header>
-     <div id="main_content"><!--useful to create the 960px limit-->
-        <%= yield %>
-     </div>
+    <nav class="head_nav">
+      <ul>
+        <li class="rss"><a href="#">Subscribe</a></li>
+        <li class="twitter"><a href="#">Follow Me</a></li>
+        <li class="home"><a href="/home">Home</a></li>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => 'delete') %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div id="main_content"><!--useful to create the 960px limit-->
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,4 @@
+<%= form_for Email.new, :remote => true do |f| %>
+    <%= f.email_field 'address', :class => 'submittable', :placeholder => 'email address' %>
+    <%= f.submit %>
+<% end %>

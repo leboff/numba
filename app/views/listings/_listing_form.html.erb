@@ -1,0 +1,7 @@
+<div id="list_form">
+  <%= form_for Listing.new, :remote => true do |f| %>
+
+      <%= f.text_field 'name', :class => 'submittable', :placeholder => 'listing name' %>
+      <%= f.submit %>
+  <% end %>
+</div>

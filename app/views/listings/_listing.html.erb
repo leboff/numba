@@ -1,6 +1,6 @@
 <div class="listing">
-   <h2> <%= listing.name %>  </h2>
-    <ul id="<%= dom_id(listing) %>" class="<%= (defined? cls & cls) or 'listing_list' %>">
-           <%= render listing.listing_items %>
-    </ul>
+  <h2> <%= listing.name %>  </h2>
+  <ul id="<%= dom_id(listing) %>" class="<%= (defined? cls & cls) or 'listing_list' %>">
+    <%= render listing.listing_items %>
+  </ul>
 </div>

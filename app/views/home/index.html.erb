@@ -1,7 +1,6 @@
 <header class="section_tit">
   <h3>Home</h3>
 </header>
-<div id="emails_count"><%= email_count %></div>
 
 <div class="l">
   <h2>Emails</h2>
@@ -10,11 +9,11 @@
   </ul>
   <%= render "emails/email_form" %>
 </div>
+
 <div class="l">
   <h2>Phones</h2>
   <ul class="phones">
     <%= render @phones %>
-
   </ul>
   <%= render "phones/phone_form" %>
 </div>
@@ -23,12 +22,8 @@
   <h3>Listings</h3>
 </header>
   <%= render "listings/listing_form" %>
-<div class="listings">
-
-
+<div id="listings">
   <%= render @listings %>
-
-
 </div>
 
 <header class="section_tit">
@@ -36,9 +31,8 @@
 </header>
 <%= render "connections/connection_form" %>
 <div class="conns">
-
-
   <%= render @connections %>
-
-
+</div>
+<div id="toast">
+  unable to add to list. this issue has been reported
 </div>

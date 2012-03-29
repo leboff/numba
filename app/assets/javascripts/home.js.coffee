@@ -1,35 +1,35 @@
-window.addSortable = (selector) -> $(selector).sortable({
-    receive:  (event, ui )->
-      window.pitem = ui.item
-      window.received = true if ui.sender.attr('class').indexOf('listable') != -1
-      console.log(ui.sender.attr('class').indexOf('listable'))
-    ,
-    stop: (event, ui) ->
-      if window.received
-        $.post('/add', {listing: $(this).attr('id'), listable: window.pitem.attr('id')  },
+window.addDroppable = (selector) -> $(selector).droppable({
+      hoverClass: "light_listing",
+      drop: (event, ui) ->
+        lister= $(this).find('ul').first()
+        $.post('/add', {listing: lister.attr('id'), listable: ui.draggable.attr('id') },
           (data)->
-            $(ui.item).fadeOut("slow") if (!data.success)
+            #if success ...add helper to list
+            if (data.success)
+              console.log(lister)
+              lister.append(ui.draggable.clone())
+            else
+              $("#toast").fadeIn("slow").fadeOut("slow")
         )
-        window.received = false;
-    ,
-    revert: true
+
+
 });
 
-window.destroySortable = (selector) -> $(selector).sortable("destroy")
+window.destroyDroppable = (selector) -> $(selector).droppable("destroy")
+
 window.destroyDraggable = (selector) -> $(selector).draggable("destroy")
 
 window.addDraggable = (selector) -> $(selector).draggable({
-                connectToSortable: ".listing_list",
                 helper: "clone",
                 revert: "invalid"
-
             });
 
 window.refresh = ->
        $('.l li').addClass('listable');
+       $('#listings .listing').addClass('listing_droppable')
 $(document).ready ->
             refresh();
-            addSortable(".listing_list" );
+            addDroppable(".listing_droppable" );
             addDraggable(".listable");
             $( "ul, li" ).disableSelection();
 

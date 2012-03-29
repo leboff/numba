@@ -12,5 +12,3 @@ refresh();
 destroyDraggable(".listable");
 addDraggable(".listable");
 $('#new_email')[0].reset()
-
-$('#emails_count').html '<%= email_count %>'

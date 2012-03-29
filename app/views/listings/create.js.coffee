@@ -9,8 +9,6 @@ $('<%= escape_javascript(render(:partial => @listing))%>')
   .fadeIn()
 
 refresh();
-destroySortable(".listing_list");
-addSortable(".listing_list" );
+destroyDroppable(".listing_droppable");
+addDroppable(".listing_droppable" );
 $('#new_listing')[0].reset()
-
-$('#listings_count').html '<%= listing_count %>'

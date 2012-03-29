@@ -28,7 +28,6 @@ window.addDraggable = (selector) -> $(selector).draggable({
 window.refresh = ->
        $('.l li').addClass('listable');
 $(document).ready ->
-
             refresh();
             addSortable(".listing_list" );
             addDraggable(".listable");

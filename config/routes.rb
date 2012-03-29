@@ -5,6 +5,7 @@ Numba::Application.routes.draw do
   devise_for :users
   resources :emails
   resources :listings
+  resources :phones
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

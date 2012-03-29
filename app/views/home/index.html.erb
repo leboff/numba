@@ -3,15 +3,29 @@
 </header>
 <div id="emails_count"><%= email_count %></div>
 
-<div class="e">
+<div class="l">
+  <h2>Emails</h2>
   <ul class="emails">
     <%= render @emails %>
   </ul>
 
   <%= form_for Email.new, :remote => true do |f| %>
-      <%= f.label 'email address' %>
-      <br/>
-      <%= f.email_field 'address', :class => 'submittable' %>
+      <%= f.email_field 'address', :class => 'submittable', :placeholder => 'email address' %>
+      <%= f.submit %>
+  <% end %>
+</div>
+<div class="l">
+  <h2>Phones</h2>
+  <ul class="phones">
+    <%= render @phones %>
+
+  </ul>
+  <%= form_for Phone.new, :remote => true do |f| %>
+
+      <%= f.text_field 'areacode', :class => 'phone', :placeholder => 'area code' %>
+      <%= f.text_field 'number', :class => 'phone', :placeholder => 'number' %>
+
+      <%= f.text_field 'ext', :class => 'phone', :placeholder => 'extension' %>
       <%= f.submit %>
   <% end %>
 </div>
@@ -21,9 +35,8 @@
 </header>
   <div id="list_form">
  <%= form_for Listing.new, :remote => true do |f| %>
-      <%= f.label 'New Listing Name' %>
-      <br/>
-      <%= f.text_field 'name', :class => 'submittable' %>
+
+      <%= f.text_field 'name', :class => 'submittable', :placeholder => 'listing name'  %>
       <%= f.submit %>
   <% end %>
 </div>
@@ -34,3 +47,7 @@
 
 
 </div>
+
+<header class="section_tit">
+  <h3>Contacts</h3>
+</header>

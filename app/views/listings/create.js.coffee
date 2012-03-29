@@ -7,11 +7,7 @@ $('<%= escape_javascript(render(:partial => @listing))%>')
   .appendTo('.listings')
   .hide()
   .fadeIn()
-
-$(".listing_list" ).sortable({
-                connectWith: ".listing_list",
-                revert: true
-            });
+addSortable(".listing_list" );
 $('#new_listing')[0].reset()
 
 $('#listings_count').html '<%= listing_count %>'

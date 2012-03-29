@@ -1,16 +1,26 @@
-$(document).ready ->
-            $( ".listing_list" ).sortable({
-                connectWith: ".listing_list",
-                receive:  (event, ui )->
-                  console.log($(this).attr('id') + ' got ' + ui.sender[0].id)
-                  $.post('/add', {listing: $(this).attr('id'), listable: ui.sender[0].id })
-                ,
-                revert: true
-            });
-            $( ".listable" ).draggable({
+window.addSortable = (selector) -> $(selector).sortable({
+    connectWith: ".listing_list",
+    receive:  (event, ui )->
+      window.pitem = ui.item
+    ,
+    stop: (event, ui) ->
+      $.post('/add', {listing: $(this).attr('id'), listable: window.pitem.attr('id')  },
+        (data)->
+          $(ui.item).fadeOut("slow") if (!data.success)
+      )
+    ,
+    revert: true
+});
+
+window.addDraggable = (selector) -> $(selector).draggable({
                 connectToSortable: ".listing_list",
                 helper: "clone",
                 revert: "invalid"
 
             });
+$(document).ready ->
+            addSortable(".listing_list" );
+            addDraggable(".listable");
             $( "ul, li" ).disableSelection();
+
+

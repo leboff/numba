@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @emails = current_user.emails
+    @emails = Email.all
     @listings = current_user.listings
     respond_to do |format|
       format.html

@@ -6,10 +6,11 @@ class ConnectionsController < ApplicationController
     #so first thing we need to do is split everything from before the + and after the +
     @listing = find_list(params[:connection]["userlist"])
     @connection = current_user.connections.build(:listing => @listing) if @listing
-    Rails.logger.info @connection.to_yaml
-    @connection.save if @connection
+    if not @connection.save
+      @connection = nil
+    end
 
-    respond_with @connection, :location => connections_url
+     respond_with @connection, :location => connections_url
 
   end
 
@@ -19,7 +20,7 @@ class ConnectionsController < ApplicationController
     @connid = @conn.id
     @conn.destroy
     rescue ActiveRecord::RecordNotFound
-      respond_with null, :location => connections_url
+
 
 
     respond_with :connid => @connid, :location => connections_url

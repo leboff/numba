@@ -26,10 +26,6 @@ window.addDraggable = (selector) -> $(selector).draggable({
 window.refresh = ->
        $('.l li').addClass('listable');
        $('#listings .listing').addClass('listing_droppable')
-       $('.conns .listing').find('.delete_listing').each( (i, e) ->
-          connid = $(e).parent().parent().attr("id")
-          console.log(i, $(e).attr("href", "/connections/" + connid.substr(connid.indexOf('_')+1)))
-       )
 
 $(document).ready ->
             refresh();

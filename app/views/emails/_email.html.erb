@@ -1,1 +1,1 @@
-<li id="<%= dom_id(email) %>"> <%= email.address %>    </li>
+<li id="<%= dom_id(email) %>"> <%= email.address %>   <%= link_to 'x', @listing_item ? @listing_item : email,  :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "listable_delete" %></li>

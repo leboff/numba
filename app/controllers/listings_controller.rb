@@ -4,7 +4,9 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(params[:listing])
     @listing.user = current_user;
-    @listing.save
+    if not @listing.save
+       @listing = nil
+    end
 
     respond_with @listing, :location => listings_url
 

@@ -1,11 +1,7 @@
-<div id="<%= dom_id(listing) %>"  class="listing">
+<div id="<%= dom_id(listing) %>" class="listing">
   <h2> <%= listing.name %>  </h2>
-  <%= link_to '', listing,  :confirm => 'Are you sure?',
-                              :method => :delete,
-                              :remote => true,
-                                :class => "delete_listing"
-  %>
-
+  <% Rails.logger.info @connection.to_yaml %>
+  <%= link_to '', @connection ? @connection : listing, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete_listing" %>
   <ul class="listing_list">
     <%= render listing.listing_items %>
   </ul>

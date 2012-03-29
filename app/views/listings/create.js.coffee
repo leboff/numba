@@ -4,7 +4,7 @@
 
 
 $('<%= escape_javascript(render(:partial => @listing)) if @listing %>')
-  .appendTo('.listings')
+  .appendTo('#listings')
   .hide()
   .fadeIn()
 

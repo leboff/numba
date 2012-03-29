@@ -1,2 +1,3 @@
 <li id="<%= dom_id(phone) %>"> (<%= phone.areacode %>
-  ) <%= phone.number %> <%= 'x' + phone.ext if !phone.ext.empty? %>   </li>
+  ) <%= phone.number %> <%= 'x' + phone.ext if !phone.ext.empty? %>
+   <%= link_to 'x', @listing_item ? @listing_item : phone,  :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "listable_delete" %>  </li>

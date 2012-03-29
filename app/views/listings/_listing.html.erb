@@ -1,6 +1,12 @@
-<div class="listing">
+<div id="<%= dom_id(listing) %>"  class="listing">
   <h2> <%= listing.name %>  </h2>
-  <ul id="<%= dom_id(listing) %>" class="listing_list">
+  <%= link_to '', listing,  :confirm => 'Are you sure?',
+                              :method => :delete,
+                              :remote => true,
+                                :class => "delete_listing"
+  %>
+
+  <ul class="listing_list">
     <%= render listing.listing_items %>
   </ul>
 </div>

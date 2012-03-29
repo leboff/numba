@@ -2,14 +2,13 @@ window.addDroppable = (selector) -> $(selector).droppable({
       hoverClass: "light_listing",
       drop: (event, ui) ->
         lister= $(this).find('ul').first()
-        $.post('/add', {listing: lister.attr('id'), listable: ui.draggable.attr('id') },
+        $.post('/add', {listing: $(this).attr('id'), listable: ui.draggable.attr('id') },
           (data)->
             #if success ...add helper to list
             if (data.success)
-              console.log(lister)
               lister.append(ui.draggable.clone())
             else
-              $("#toast").fadeIn("slow").fadeOut("slow")
+              $("#toast").center().fadeIn("slow").fadeOut("slow")
         )
 
 
@@ -27,6 +26,11 @@ window.addDraggable = (selector) -> $(selector).draggable({
 window.refresh = ->
        $('.l li').addClass('listable');
        $('#listings .listing').addClass('listing_droppable')
+       $('.conns .listing').find('.delete_listing').each( (i, e) ->
+          connid = $(e).parent().parent().attr("id")
+          console.log(i, $(e).attr("href", "/connections/" + connid.substr(connid.indexOf('_')+1)))
+       )
+
 $(document).ready ->
             refresh();
             addDroppable(".listing_droppable" );

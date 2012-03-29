@@ -3,7 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-$('<%= escape_javascript(render(:partial => @connection))%>')
+$('<%= escape_javascript(render(:partial => @connection)) if @connection%>')
   .appendTo('.conns')
   .hide()
   .fadeIn()
+
+refresh();

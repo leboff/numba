@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-$('<%= escape_javascript(render(:partial => @phone))%>')
+$('<%= escape_javascript(render(:partial => @phone)) if @phone %>')
   .appendTo('.phones')
   .hide()
   .fadeIn()

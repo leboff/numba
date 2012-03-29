@@ -13,5 +13,14 @@ class ListingsController < ApplicationController
   def index
     @listings = current_user.listings
   end
+  def destroy
 
+    @listing = current_user.listings.find(params[:id])
+    @listingid = @listing.id
+    @listing.destroy
+    rescue ActiveRecord::RecordNotFound
+
+
+    respond_with :listingid => @listingid, :location => listings_url
+  end
 end

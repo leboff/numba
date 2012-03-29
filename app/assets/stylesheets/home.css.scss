@@ -12,6 +12,15 @@
 
 
 }
+.delete_listing{
+    position:absolute;
+    right: -7px;
+    top: -5px;
+    height:22px;
+    width: 22px;
+
+    background-image: url('list_delete.png');
+}
 .phone{
     float:left;
     width:60px;
@@ -34,17 +43,20 @@ border-style:none;
 }
 .listing{
     float:left;
+    position: relative;
     width:180px;
     margin-right: 10px;
     margin-top: 20px;
     margin-bottom:20px;
     background-color: pink;
     box-shadow: 3px 3px 1px #888;
-
 }
 .light_listing{
      background-color: #ffdfe5;
 
+}
+.listable{
+    z-index:1;
 }
 .connections{
     margin-top:25px;
@@ -55,11 +67,6 @@ border-style:none;
     clear: both;
 }
 #toast{
-    display:block;
-    /*set the div in the center of the screen*/
-    position:absolute;
-    top:50%;
-    left:35%;
     width:250px;
     height:30px;
     display:none;

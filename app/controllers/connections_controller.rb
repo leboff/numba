@@ -13,6 +13,18 @@ class ConnectionsController < ApplicationController
 
   end
 
+  def destroy
+
+    @conn = current_user.connections.find(params[:id])
+    @connid = @conn.id
+    @conn.destroy
+    rescue ActiveRecord::RecordNotFound
+      respond_with null, :location => connections_url
+
+
+    respond_with :connid => @connid, :location => connections_url
+  end
+
   protected
   def find_list(userlist)
     if userlist =~ /([^\+]*)\+?(.*)$/

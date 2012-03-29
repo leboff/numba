@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-$('<%= escape_javascript(render(:partial => @email))%>')
+$('<%= escape_javascript(render(:partial => @email)) if @email%>')
   .appendTo('.emails')
   .hide()
   .fadeIn()

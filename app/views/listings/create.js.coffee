@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-$('<%= escape_javascript(render(:partial => @listing))%>')
+$('<%= escape_javascript(render(:partial => @listing)) if @listing %>')
   .appendTo('.listings')
   .hide()
   .fadeIn()

@@ -1,5 +1,4 @@
-<div id="<%= (local_assigns.has_key? :listing_item) ?  dom_id(listing_item) :  dom_id(phone) %>" class="listable"> (<%= phone.areacode %>
-  ) <%= phone.number %> <%= 'x' + phone.ext if !phone.ext.empty? %>
+<div id="<%= (local_assigns.has_key? :listing_item) ?  dom_id(listing_item) :  dom_id(phone) %>" class="listable"> <%= number_to_phone(phone.number, :delimiter => '.', :extension => phone.ext) %>
    <%= link_to 'x',(local_assigns.has_key? :listing_item) ? listing_item : phone,
                :confirm => 'Are you sure?', :method => :delete, :remote => true,
-               :class => "listable_delete" unless (local_assigns.has_key? :isconn) ? isconn : false %>  </div>
+               :class => "listable_delete" %>  </div>

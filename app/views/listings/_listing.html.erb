@@ -6,12 +6,12 @@
 
   <div class="listables">
     <div class="email_list">
-      <h2>Emails: </h2>
-        <%= render listing.listing_items.where(:listable_type => 'Email') , :isconn => (local_assigns.has_key? :connection) ? true : false  %>
+      <h2>Emails </h2>
+        <%= render listing.listing_items.where(:listable_type => 'Email')   %>
     </div>
     <div class="phone_list">
-      <h2>Phones: </h2>
-        <%= render listing.listing_items.where(:listable_type => 'Phone') , :isconn => (local_assigns.has_key? :connection) ? true : false  %>
+      <h2>Phones </h2>
+        <%= render listing.listing_items.where(:listable_type => 'Phone')  %>
     </div>
    </div>
 

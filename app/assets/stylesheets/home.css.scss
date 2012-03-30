@@ -14,7 +14,12 @@
 }
 .listable_delete{
     color: red;
+
 }
+.conns .listable_delete{
+  display: none;
+}
+
 .delete_listing{
     position:absolute;
     right: -7px;
@@ -25,6 +30,9 @@
     background-image: url('list_delete.png');
 }
 .phone{
+    float:left;
+}
+.ext{
     float:left;
     width:60px;
 }
@@ -43,7 +51,7 @@ border-style:none;
 }
 .username{
  font-size: medium;
- margin-left: 20px;
+ margin-left: 0px;
 }
 .listing{
     float:left;
@@ -65,6 +73,11 @@ border-style:none;
 }
 .listable{
     z-index:1;
+    background-color: #fff7f4;
+    height: 12px;
+    padding: 2px;
+    margin: 5px;
+    display: inline-block;
 }
 .connections{
     margin-top:25px;
@@ -92,11 +105,15 @@ border-style:none;
 .phone_list .listable{
     float: left;
     padding-right: 10px;
+        background-color: transparent;
 
 }
 .email_list .listable{
     float: left;
     padding-right: 10px;
+        background-color: transparent;
+
+
 }
 .phone_list{
     clear: left;

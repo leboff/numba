@@ -1,6 +1,5 @@
 Numba::Application.routes.draw do
 
-  match 'add' => 'listing_items#create'
   match 'home' =>'home#index'
   devise_for :users
   resources :emails

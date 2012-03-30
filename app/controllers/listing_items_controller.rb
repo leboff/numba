@@ -1,20 +1,33 @@
 class ListingItemsController < ApplicationController
+  respond_to :html, :js, :json
+
   def create
     ##lets run some checks.. make sure the user owns these before we go all willy nilly
-    @listitem = ListingItem.new
+    ##this can be cleaned up immensely
+    @listing_item = ListingItem.new
     @listable = find_listable(params[:listable])
 
-    @listitem.listable = @listable
-    @listitem.listing = find_listing(params[:listing])
+    @listing_item.listable = @listable
+    @listing_item.listing = find_listing(params[:listing])
+
+    @listing_item.save if @listing_item.listable.user == current_user and @listing_item.listing.user == current_user
 
 
-    respond_to do |format|
-      if @listitem.listable.user == current_user and @listitem.listing.user == current_user and @listitem.save
-        format.json { render :json => {:success => true, :data=> (params)} }
-      else
-        format.json { render :json => {:success => false, :data=>(params)} }
-      end
+    respond_with :listing_item => @listing_item, :location => listing_items_url
+  end
+
+  def destroy
+    @listing_item = ListingItem.find(params[:id])
+
+    if @listing_item.listing.user == current_user
+      @listingitemid = @listing_item.id
+      @listing_item.destroy
     end
+
+    rescue ActiveRecord::RecordNotFound
+
+
+    respond_with :listingitemid => @listingitemid, :location => listing_items_url
   end
 end
 

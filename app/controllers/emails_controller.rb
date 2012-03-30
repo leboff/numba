@@ -16,7 +16,14 @@ class EmailsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @email = current_user.emails.find(params[:id])
+    @emailid = @email.id
+    @email.destroy
+    rescue ActiveRecord::RecordNotFound
+
+
+    respond_with :emailid => @emailid, :location => emails_url
   end
 
   def edit

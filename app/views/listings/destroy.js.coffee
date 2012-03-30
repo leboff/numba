@@ -1,1 +1,1 @@
-$('#listing_<%= @listingid if !@listingid.nil? %>' ).fadeOut("slow")
+$('#listing_<%= @listingid if @listingid %>' ).fadeOut("slow")

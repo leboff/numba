@@ -1,1 +1,1 @@
-$('#connection_<%= @connid if !@connid.nil? %>' ).fadeOut("slow")
+$('#connection_<%= @connid if @connid %>' ).fadeOut("slow")

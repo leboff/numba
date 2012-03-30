@@ -2,13 +2,11 @@ window.addDroppable = (selector) -> $(selector).droppable({
       hoverClass: "light_listing",
       drop: (event, ui) ->
         lister= $(this).find('ul').first()
-        $.post('/add', {listing: $(this).attr('id'), listable: ui.draggable.attr('id') },
+        $.post('/listing_items', {listing: $(this).attr('id'), listable: ui.draggable.attr('id') },
           (data)->
-            #if success ...add helper to list
-            if (data.success)
-              lister.append(ui.draggable.clone())
-            else
-              $("#toast").center().fadeIn("slow").fadeOut("slow")
+
+          ,
+          "script"
         )
 
 

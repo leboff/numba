@@ -2,12 +2,7 @@ window.addDroppable = (selector) -> $(selector).droppable({
       hoverClass: "light_listing",
       drop: (event, ui) ->
         lister= $(this).find('ul').first()
-        $.post('/listing_items', {listing: $(this).attr('id'), listable: ui.draggable.attr('id') },
-          (data)->
-
-          ,
-          "script"
-        )
+        $.post('/listing_items', {listing: $(this).attr('id'), listable: ui.draggable.attr('id') },,"script")
 
 
 });

@@ -10,7 +10,9 @@ class ListingItemsController < ApplicationController
     @listing_item.listable = @listable
     @listing_item.listing = find_listing(params[:listing])
 
-    @listing_item.save if @listing_item.listable.user == current_user and @listing_item.listing.user == current_user
+    @listing_item =
+        (@listing_item.listable.user == current_user and @listing_item.listing.user == current_user and @listing_item.save) ?
+            @listing_item : nil
 
 
     respond_with :listing_item => @listing_item, :location => listing_items_url

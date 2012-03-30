@@ -1,3 +1,3 @@
-<li id="<%=  (local_assigns.has_key? :listing_item) ? dom_id(listing_item) : dom_id(email)%>"> <%= email.address %>
+<div id="<%=  (local_assigns.has_key? :listing_item) ? dom_id(listing_item) : dom_id(email)%>" class="listable"> <%= email.address %>
   <%= (link_to 'x', (local_assigns.has_key? :listing_item) ? listing_item : email,  :confirm => 'Are you sure?',
-               :method => :delete, :remote => true, :class => "listable_delete" ) unless  (local_assigns.has_key? :isconn) ? isconn : false %></li>
+               :method => :delete, :remote => true, :class => "listable_delete" ) unless  (local_assigns.has_key? :isconn) ? isconn : false %></div>

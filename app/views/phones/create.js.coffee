@@ -9,6 +9,6 @@ $('<%= escape_javascript(render(:partial => @phone)) if @phone %>')
   .fadeIn()
 
 refresh();
-destroyDraggable(".listable");
-addDraggable(".listable");
+destroyDraggable(".listing_draggable");
+addDraggable(".listing_draggable");
 $('#new_phone')[0].reset()

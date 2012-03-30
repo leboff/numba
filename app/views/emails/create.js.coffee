@@ -9,6 +9,6 @@ $('<%= escape_javascript(render(:partial => @email)) if @email%>')
   .fadeIn()
 
 refresh();
-destroyDraggable(".listable");
-addDraggable(".listable");
+destroyDraggable(".listing_draggable");
+addDraggable(".listing_draggable");
 $('#new_email')[0].reset()

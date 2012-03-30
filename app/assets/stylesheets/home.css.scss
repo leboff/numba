@@ -37,25 +37,30 @@ background-color:#dedddd;
 border-style:none;
 }
 .listing_list li{
-    margin:auto;
+    float:left;
     width:180px;
 
 }
-.listing:nth-child(4n+1){
-    clear: left
+.username{
+ font-size: medium;
+ margin-left: 20px;
 }
 .listing{
     float:left;
     position: relative;
-    width:180px;
+    width:550px;
+    height: 250px;
     margin-right: 10px;
     margin-top: 20px;
     margin-bottom:20px;
-    background-color: pink;
+    //background-color: pink;
+    background-image: url('card.png');
+    background-repeat: repeat;
     box-shadow: 3px 3px 1px #888;
+    clear:left;
 }
 .light_listing{
-     background-color: #ffdfe5;
+      background-image: url('card-light.png');
 
 }
 .listable{
@@ -65,11 +70,46 @@ border-style:none;
     margin-top:25px;
     float:left;
 }
-
+.card_name{
+ float:left;
+ width: 550px;
+ margin: auto;
+ padding-top: 50px;
+ text-align: center;
+ clear: both;
+}
+.listing_item{
+    float: left;
+}
 #list_form{
     clear: both;
 }
+.user_name{
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.phone_list .listable{
+    float: left;
+    padding-right: 10px;
+
+}
+.email_list .listable{
+    float: left;
+    padding-right: 10px;
+}
+.phone_list{
+    clear: left;
+}
+.listables{
+    position: absolute;
+    bottom: 5px;
+    left: 30px;
+
+}
+
 #toast{
+    background-image: url('card-light.png');
     width:250px;
     height:30px;
     display:none;

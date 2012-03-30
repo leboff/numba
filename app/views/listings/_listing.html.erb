@@ -1,7 +1,19 @@
 <div id="<%= dom_id(listing) %>" class="listing">
-  <h2> <%= listing.name %>  </h2>
+  <div class="user_name"><h1> <%= listing.user.name if listing.user.name %> </h1><div class="username">(<%= listing.user.username if listing.user.username %>)</div></div>
+
+  <div class="card_name"><h1> <%= listing.name %>  </h1></div>
   <%=  link_to '', (local_assigns.has_key? :connection) ? connection : listing, :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete_listing" %>
-  <ul class="listing_list">
-    <%= render listing.listing_items , :isconn => (local_assigns.has_key? :connection) ? true : false  %>
-  </ul>
+
+  <div class="listables">
+    <div class="email_list">
+      <h2>Emails: </h2>
+        <%= render listing.listing_items.where(:listable_type => 'Email') , :isconn => (local_assigns.has_key? :connection) ? true : false  %>
+    </div>
+    <div class="phone_list">
+      <h2>Phones: </h2>
+        <%= render listing.listing_items.where(:listable_type => 'Phone') , :isconn => (local_assigns.has_key? :connection) ? true : false  %>
+    </div>
+   </div>
+
+
 </div>

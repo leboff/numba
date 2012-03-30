@@ -2,7 +2,7 @@ window.addDroppable = (selector) -> $(selector).droppable({
       hoverClass: "light_listing",
       drop: (event, ui) ->
         lister= $(this).find('ul').first()
-        $.post('/listing_items', {listing: $(this).attr('id'), listable: ui.draggable.attr('id') },,"script")
+        $.post('/listing_items', {listing: $(this).attr('id'), listable: ui.draggable.attr('id') },'',"script")
 
 
 });
@@ -17,13 +17,13 @@ window.addDraggable = (selector) -> $(selector).draggable({
             });
 
 window.refresh = ->
-       $('.l li').addClass('listable');
+       $('.l .listable').addClass('listing_draggable');
        $('#listings .listing').addClass('listing_droppable')
 
 $(document).ready ->
             refresh();
             addDroppable(".listing_droppable" );
-            addDraggable(".listable");
+            addDraggable(".listing_draggable");
             $( "ul, li" ).disableSelection();
 
 
